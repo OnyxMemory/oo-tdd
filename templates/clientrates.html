@@ -1,0 +1,20 @@
+   <!DOCTYPE html>
+    <html>
+    <h2> Clients and Credits</h2>
+            <table border = '1'>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Credits
+                    </td>
+                </tr>
+                  {% for client in rep %}
+                 <tr>
+                     <td>{{client[0]}}</td>
+                     <td>{{client[1]}}</td>
+                 </tr>
+                    {% endfor %}
+            </table>
+   </html>
