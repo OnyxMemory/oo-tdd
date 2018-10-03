@@ -35,6 +35,9 @@ class TestClientrates(unittest.TestCase):
         wb = self.create_test_wb()
         client_list = clientrates.create_clients(wb)
         report = clientrates.create_report(wb, '2012-07', client_list)
+        self.assertEqual("Name: John | Credits: 5 \n", report[0])
+        self.assertEqual("Name: Sally | Credits: 4 \n", report[1])
+        self.assertEqual("Name: Harry | Credits: 2 \n", report[2])
 
         # for i in report:
         #     print(i)
@@ -44,10 +47,17 @@ class TestClientrates(unittest.TestCase):
         client_list = clientrates.create_clients(wb)
         report = clientrates.create_report(wb, '2018-10', client_list)
 
-        for i in report:
-            print(i)
+        self.assertEqual("Name: Carri | Credits: 28 \n", report[0])
+        # for i in report:
+        #     print(i)
 
+    def test_create_report_for_html(self):
+        wb = self.create_test_wb()
+        client_list = clientrates.create_clients(wb)
+        report = clientrates.create_report_for_html(wb, '2012-07', client_list)
 
+        self.assertEqual(report[0][0], "John Bon")
+        self.assertEqual(report[0][1], 5)
 
     @staticmethod
     def create_test_wb():

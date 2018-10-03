@@ -84,7 +84,7 @@ def create_report_for_html(wb, date, client_list):
     fill_credits(wb, date, client_list)
 
     for client in client_list:
-        report.append((client_list[client].firstN, client_list[client].credits))
+        report.append((client_list[client].fullname, client_list[client].credits))
 
     return report
 
