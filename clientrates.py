@@ -1,3 +1,6 @@
+#grabs clients from spreadsheet, creates client objects, gets credits from month sheet
+#adds credits to clients and prints
+
 import openpyxl
 from flask import Flask,render_template
 from tdd2 import open_booking_wb, find_tab, cell_has_value
